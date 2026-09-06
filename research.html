@@ -207,7 +207,7 @@
 
     /* ── EMBED WRAPPER ── */
     .embed-wrap {
-      width: 100%; border-radius: 3px; overflow: hidden;
+      width: 100%; border-radius: 3px; overflow: visible;
       border: 1px solid rgba(245,236,215,0.08);
       background: rgba(0,0,0,0.2);
       margin-bottom: 28px;
@@ -219,7 +219,7 @@
 
     .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
     .embed-wrap--pdf    { aspect-ratio: 16/9; height: auto; }
-    .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
+    .embed-wrap--doc    { position: relative; width: 100%; aspect-ratio: 3/4; min-height: 450px; height: 600px; }
     .embed-wrap--video  { aspect-ratio: 16/9; height: auto; }
 
     /* Tableau wrapper needs position:relative for its own sizing */
@@ -344,14 +344,14 @@
       .mrr-grid { grid-template-columns: 1fr; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
+      .embed-wrap--doc    { position: relative; width: 100%; aspect-ratio: 3/4; min-height: 450px; height: 600px; }
     }
 
     @media (max-width: 520px) {
       .page { padding: 88px 5vw 56px; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
+      .embed-wrap--doc    { position: relative; width: 100%; aspect-ratio: 3/4; min-height: 450px; height: 600px; }
     }
 
     /* ── TABLEAU PREVIEW CARD ── */
@@ -773,6 +773,27 @@
     .skip-link:focus {
       top: 12px;
     }
+
+    /* ── PDF MOBILE FALLBACK ── */
+    .pdf-mobile-fallback {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--cream-dim);
+      background: rgba(245,236,215,0.04);
+      border-radius: 3px;
+      border: 1px solid rgba(245,236,215,0.08);
+    }
+    .pdf-mobile-fallback a {
+      color: var(--mint);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    @media (max-width: 480px) {
+      [id^="adobe-dc-view-"] { display: none !important; }
+      .pdf-mobile-fallback { display: block; }
+    }
   </style>
   <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 </head>
@@ -898,6 +919,7 @@
           </div>
           <div class="embed-wrap embed-wrap--doc" aria-label="YourPeer feedback beta synthesis notes">
             <div id="adobe-dc-view-feedback" style="width:100%;height:100%;"></div>
+            <div class="pdf-mobile-fallback"><a href="assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf" target="_blank" rel="noopener noreferrer">Open Feedback Beta Synthesis Notes (PDF)</a></div>
           </div>
         </div>
       </div>
@@ -974,6 +996,7 @@
       </div>
       <div class="embed-wrap embed-wrap--pdf" aria-label="MRR UX Research Presentation">
         <div id="adobe-dc-view-mrr-pdf" style="width:100%;height:100%;"></div>
+            <div class="pdf-mobile-fallback"><a href="assets/pdfs/mrr-ux-research-presentation.pdf" target="_blank" rel="noopener noreferrer">Open MRR UX Research Presentation (PDF)</a></div>
       </div>
 
     </section>
@@ -1150,7 +1173,9 @@
         showLeftHandPanel: false,
         showAnnotationTools: false,
       }).then(function() {
-        window.dispatchEvent(new Event('resize'));
+        requestAnimationFrame(function() {
+          window.dispatchEvent(new Event('resize'));
+        });
       });
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-mrr-pdf" })
@@ -1164,7 +1189,9 @@
         showLeftHandPanel: false,
         showAnnotationTools: false,
       }).then(function() {
-        window.dispatchEvent(new Event('resize'));
+        requestAnimationFrame(function() {
+          window.dispatchEvent(new Event('resize'));
+        });
       });
     });
   </script>
