@@ -214,12 +214,12 @@
     }
 
     .embed-wrap iframe {
-      width: 100%; border: none; display: block;
+      width: 100%; height: 100%; border: none; display: block;
     }
 
     .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
     .embed-wrap--pdf    { aspect-ratio: 16/9; height: auto; }
-    .embed-wrap--doc    { height: 280px; }
+    .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     .embed-wrap--video  { aspect-ratio: 16/9; height: auto; }
 
     /* Tableau wrapper needs position:relative for its own sizing */
@@ -344,14 +344,14 @@
       .mrr-grid { grid-template-columns: 1fr; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { height: 280px; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     }
 
     @media (max-width: 520px) {
       .page { padding: 88px 5vw 56px; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { height: 280px; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     }
 
     /* ── TABLEAU PREVIEW CARD ── */
