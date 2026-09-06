@@ -1044,7 +1044,7 @@
     document.addEventListener("adobe_dc_view_sdk.ready", function() {
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-1party-pr" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/1party-press-release.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/1party-press-release.pdf" } },
         metaData: { fileName: "1party-press-release.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1058,7 +1058,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-streetlives-pr" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/streetlives-press-release.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-press-release.pdf" } },
         metaData: { fileName: "streetlives-press-release.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1072,7 +1072,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-buxr-pr" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/buxr-press-release.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/buxr-press-release.pdf" } },
         metaData: { fileName: "buxr-press-release.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1086,7 +1086,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-op-original" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/streetlives-one-pager-original.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-one-pager-original.pdf" } },
         metaData: { fileName: "streetlives-one-pager-original.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1100,7 +1100,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-op-revised" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/streetlives-one-pager-revised.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-one-pager-revised.pdf" } },
         metaData: { fileName: "streetlives-one-pager-revised.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1114,7 +1114,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-reason" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/reason-13-1-release-notes.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/reason-13-1-release-notes.pdf" } },
         metaData: { fileName: "reason-13-1-release-notes.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",

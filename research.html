@@ -1141,7 +1141,7 @@
     document.addEventListener("adobe_dc_view_sdk.ready", function() {
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-feedback" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf" } },
         metaData: { fileName: "yourpeer-feedback-beta-synthesis-notes.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
@@ -1155,7 +1155,7 @@
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-mrr-pdf" })
       .previewFile({
-        content: { location: { url: "assets/pdfs/mrr-ux-research-presentation.pdf" } },
+        content: { location: { url: window.location.origin + "/assets/pdfs/mrr-ux-research-presentation.pdf" } },
         metaData: { fileName: "mrr-ux-research-presentation.pdf" }
       }, {
         embedMode: "SIZED_CONTAINER",
