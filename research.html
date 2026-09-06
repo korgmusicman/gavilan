@@ -219,7 +219,7 @@
 
     .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
     .embed-wrap--pdf    { aspect-ratio: 16/9; height: auto; }
-    .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
+    .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
     .embed-wrap--video  { aspect-ratio: 16/9; height: auto; }
 
     /* Tableau wrapper needs position:relative for its own sizing */
@@ -344,14 +344,14 @@
       .mrr-grid { grid-template-columns: 1fr; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
     }
 
     @media (max-width: 520px) {
       .page { padding: 88px 5vw 56px; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; min-height: 450px; width: 100%; height: auto; }
     }
 
     /* ── TABLEAU PREVIEW CARD ── */
@@ -1149,6 +1149,8 @@
         showPrintPDF:    true,
         showLeftHandPanel: false,
         showAnnotationTools: false,
+      }).then(function() {
+        window.dispatchEvent(new Event('resize'));
       });
 
     new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-mrr-pdf" })
@@ -1161,6 +1163,8 @@
         showPrintPDF:    true,
         showLeftHandPanel: false,
         showAnnotationTools: false,
+      }).then(function() {
+        window.dispatchEvent(new Event('resize'));
       });
     });
   </script>
