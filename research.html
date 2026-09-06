@@ -774,6 +774,7 @@
       top: 12px;
     }
   </style>
+  <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -896,12 +897,7 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc" aria-label="YourPeer feedback beta synthesis notes">
-            <iframe
-              src="https://drive.google.com/file/d/1zvB8b8ghEYW5s_XlYyoJ1rJLgi4y6Qz_/preview"
-              allowfullscreen
-              loading="lazy"
-              title="YourPeer Feedback Beta Synthesis Notes"
-            ></iframe>
+            <div id="adobe-dc-view-feedback" style="width:100%;height:100%;"></div>
           </div>
         </div>
       </div>
@@ -977,12 +973,7 @@
         </button>
       </div>
       <div class="embed-wrap embed-wrap--pdf" aria-label="MRR UX Research Presentation">
-        <iframe
-          src="https://drive.google.com/file/d/1jtVoVdW-0tAw9-npxEa-cBTbqU6SRr4f/preview"
-          allowfullscreen
-          loading="lazy"
-          title="Midtown Radio and Records UX Research Presentation"
-        ></iframe>
+        <div id="adobe-dc-view-mrr-pdf" style="width:100%;height:100%;"></div>
       </div>
 
     </section>
@@ -1145,5 +1136,33 @@
     });
   </script>
 
+
+  <script>
+    document.addEventListener("adobe_dc_view_sdk.ready", function() {
+    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-feedback" })
+      .previewFile({
+        content: { location: { url: "assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf" } },
+        metaData: { fileName: "yourpeer-feedback-beta-synthesis-notes.pdf" }
+      }, {
+        embedMode: "SIZED_CONTAINER",
+        showDownloadPDF: true,
+        showPrintPDF:    true,
+        showLeftHandPanel: false,
+        showAnnotationTools: false,
+      });
+
+    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-mrr-pdf" })
+      .previewFile({
+        content: { location: { url: "assets/pdfs/mrr-ux-research-presentation.pdf" } },
+        metaData: { fileName: "mrr-ux-research-presentation.pdf" }
+      }, {
+        embedMode: "SIZED_CONTAINER",
+        showDownloadPDF: true,
+        showPrintPDF:    true,
+        showLeftHandPanel: false,
+        showAnnotationTools: false,
+      });
+    });
+  </script>
 </body>
 </html>
