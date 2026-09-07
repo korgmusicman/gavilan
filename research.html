@@ -219,7 +219,7 @@
 
     .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
     .embed-wrap--pdf    { aspect-ratio: 16/9; height: auto; }
-    .embed-wrap--doc    { height: 600px; }
+    .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     .embed-wrap--video  { aspect-ratio: 16/9; height: auto; }
 
     /* Tableau wrapper needs position:relative for its own sizing */
@@ -344,14 +344,14 @@
       .mrr-grid { grid-template-columns: 1fr; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { height: 600px; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     }
 
     @media (max-width: 520px) {
       .page { padding: 88px 5vw 56px; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc    { height: 600px; }
+      .embed-wrap--doc    { aspect-ratio: 3/4; height: auto; }
     }
 
     /* ── TABLEAU PREVIEW CARD ── */
@@ -773,7 +773,6 @@
     .skip-link:focus {
       top: 12px;
     }
-
   </style>
 </head>
 <body>
@@ -898,12 +897,11 @@
           </div>
           <div class="embed-wrap embed-wrap--doc" aria-label="YourPeer feedback beta synthesis notes">
             <iframe
-              src="assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf"
-              title="Feedback Beta Synthesis Notes"
+              src="https://drive.google.com/file/d/1zvB8b8ghEYW5s_XlYyoJ1rJLgi4y6Qz_/preview"
               allowfullscreen
               loading="lazy"
-              style="width:100%;height:100%;border:none;display:block;"
-            ><a href="assets/pdfs/yourpeer-feedback-beta-synthesis-notes.pdf" target="_blank" rel="noopener noreferrer">Open Feedback Beta Synthesis Notes (PDF)</a></iframe>
+              title="YourPeer Feedback Beta Synthesis Notes"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -980,12 +978,11 @@
       </div>
       <div class="embed-wrap embed-wrap--pdf" aria-label="MRR UX Research Presentation">
         <iframe
-              src="assets/pdfs/mrr-ux-research-presentation.pdf"
-              title="MRR UX Research Presentation"
-              allowfullscreen
-              loading="lazy"
-              style="width:100%;height:100%;border:none;display:block;"
-            ><a href="assets/pdfs/mrr-ux-research-presentation.pdf" target="_blank" rel="noopener noreferrer">Open MRR UX Research Presentation (PDF)</a></iframe>
+          src="https://drive.google.com/file/d/1jtVoVdW-0tAw9-npxEa-cBTbqU6SRr4f/preview"
+          allowfullscreen
+          loading="lazy"
+          title="Midtown Radio and Records UX Research Presentation"
+        ></iframe>
       </div>
 
     </section>
@@ -1147,5 +1144,6 @@
       });
     });
   </script>
+
 </body>
 </html>
