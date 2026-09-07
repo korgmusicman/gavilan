@@ -207,7 +207,7 @@
 
     /* ── EMBED WRAPPER ── */
     .embed-wrap {
-      width: 100%; border-radius: 3px; overflow: visible;
+      width: 100%; border-radius: 3px; overflow: hidden;
       border: 1px solid rgba(245,236,215,0.08);
       background: rgba(0,0,0,0.2);
       margin-bottom: 28px;
@@ -219,7 +219,7 @@
 
     .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
     .embed-wrap--pdf    { aspect-ratio: 16/9; height: auto; }
-    .embed-wrap--doc    { position: relative; width: 100%; aspect-ratio: 3/4; min-height: 450px; height: 600px; }
+    .embed-wrap--doc    { height: 600px; }
     .embed-wrap--video  { aspect-ratio: 16/9; height: auto; }
 
     /* Tableau wrapper needs position:relative for its own sizing */
@@ -239,7 +239,7 @@
     }
 
     .asset-grid .embed-wrap { margin-bottom: 0; }
-    .embed-wrap--doc-sm    { position: relative; width: 100%; aspect-ratio: 3/4; min-height: 300px; height: 400px; }
+    .embed-wrap--doc-sm    { height: 400px; }
 
     /* ── POLICY GRID — video + article card ── */
     .policy-grid {
@@ -344,16 +344,16 @@
       .mrr-grid { grid-template-columns: 1fr; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc { width: 100%; height: 500px; min-height: 0; }
-      .embed-wrap--doc-sm { width: 100%; height: 350px; min-height: 0; }
+      .embed-wrap--doc { height: 500px; }
+      .embed-wrap--doc-sm { height: 350px; }
     }
 
     @media (max-width: 520px) {
       .page { padding: 88px 5vw 56px; }
       .embed-wrap--slides { aspect-ratio: 16/9; height: auto; }
       .embed-wrap--pdf { aspect-ratio: 16/9; height: auto; }
-      .embed-wrap--doc { width: 100%; height: 500px; min-height: 0; }
-      .embed-wrap--doc-sm { width: 100%; height: 350px; min-height: 0; }
+      .embed-wrap--doc { height: 500px; }
+      .embed-wrap--doc-sm { height: 350px; }
     }
 
     /* ── TABLEAU PREVIEW CARD ── */
@@ -653,28 +653,7 @@
       top: 12px;
     }
 
-    /* ── PDF MOBILE FALLBACK ── */
-    .pdf-mobile-fallback {
-      display: none;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--cream-dim);
-      background: rgba(245,236,215,0.04);
-      border-radius: 3px;
-      border: 1px solid rgba(245,236,215,0.08);
-    }
-    .pdf-mobile-fallback a {
-      color: var(--mint);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    @media (max-width: 480px) {
-      [id^="adobe-dc-view-"] { display: none !important; }
-      .pdf-mobile-fallback { display: block; }
-    }
   </style>
-  <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -833,8 +812,13 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc-sm" aria-label="1Party press release">
-            <div id="adobe-dc-view-1party-pr" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/1party-press-release.pdf" target="_blank" rel="noopener noreferrer">Open 1Party Press Release (PDF)</a></div>
+            <iframe
+              src="assets/pdfs/1party-press-release.pdf"
+              title="1Party Press Release"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/1party-press-release.pdf" target="_blank" rel="noopener noreferrer">Open 1Party Press Release (PDF)</a></iframe>
           </div>
         </div>
 
@@ -847,8 +831,13 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc-sm" aria-label="Streetlives press release">
-            <div id="adobe-dc-view-streetlives-pr" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/streetlives-press-release.pdf" target="_blank" rel="noopener noreferrer">Open Streetlives Press Release (PDF)</a></div>
+            <iframe
+              src="assets/pdfs/streetlives-press-release.pdf"
+              title="Streetlives Press Release"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/streetlives-press-release.pdf" target="_blank" rel="noopener noreferrer">Open Streetlives Press Release (PDF)</a></iframe>
           </div>
         </div>
 
@@ -861,8 +850,13 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc-sm" aria-label="BUXR press release">
-            <div id="adobe-dc-view-buxr-pr" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/buxr-press-release.pdf" target="_blank" rel="noopener noreferrer">Open BUXR Press Release (PDF)</a></div>
+            <iframe
+              src="assets/pdfs/buxr-press-release.pdf"
+              title="BUXR Press Release"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/buxr-press-release.pdf" target="_blank" rel="noopener noreferrer">Open BUXR Press Release (PDF)</a></iframe>
           </div>
         </div>
 
@@ -898,8 +892,13 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc" aria-label="Original one-pager">
-            <div id="adobe-dc-view-op-original" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/streetlives-one-pager-original.pdf" target="_blank" rel="noopener noreferrer">Open Original One-Pager (PDF)</a></div>
+            <iframe
+              src="assets/pdfs/streetlives-one-pager-original.pdf"
+              title="Original One-Pager"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/streetlives-one-pager-original.pdf" target="_blank" rel="noopener noreferrer">Open Original One-Pager (PDF)</a></iframe>
           </div>
           <p class="project-desc" style="font-size: 0.85rem; margin-top: 12px; margin-bottom: 0;">
             The baseline document: sector-specific jargon and an institutional
@@ -916,8 +915,13 @@
             </button>
           </div>
           <div class="embed-wrap embed-wrap--doc" aria-label="Revised one-pager">
-            <div id="adobe-dc-view-op-revised" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/streetlives-one-pager-revised.pdf" target="_blank" rel="noopener noreferrer">Open Revised One-Pager (PDF)</a></div>
+            <iframe
+              src="assets/pdfs/streetlives-one-pager-revised.pdf"
+              title="Revised One-Pager"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/streetlives-one-pager-revised.pdf" target="_blank" rel="noopener noreferrer">Open Revised One-Pager (PDF)</a></iframe>
           </div>
           <p class="project-desc" style="font-size: 0.85rem; margin-top: 12px; margin-bottom: 0;">
             A redesigned document using clear, human-centered language to improve
@@ -939,9 +943,14 @@
               Expand
             </button>
           </div>
-          <div class="embed-wrap embed-wrap--doc" style="width: 395px; aspect-ratio: 3/4; height: auto; margin-bottom: 0;" aria-label="Reason 13.1 release notes revision">
-            <div id="adobe-dc-view-reason" style="width:100%;height:100%;"></div>
-            <div class="pdf-mobile-fallback"><a href="assets/pdfs/reason-13-1-release-notes.pdf" target="_blank" rel="noopener noreferrer">Open Reason 13.1 Release Notes (PDF)</a></div>
+          <div class="embed-wrap embed-wrap--doc" style="width: 395px; height: 600px; margin-bottom: 0;" aria-label="Reason 13.1 release notes revision">
+            <iframe
+              src="assets/pdfs/reason-13-1-release-notes.pdf"
+              title="Reason 13.1 Release Notes — Revision"
+              allowfullscreen
+              loading="lazy"
+              style="width:100%;height:100%;border:none;display:block;"
+            ><a href="assets/pdfs/reason-13-1-release-notes.pdf" target="_blank" rel="noopener noreferrer">Open Reason 13.1 Release Notes — Revision (PDF)</a></iframe>
           </div>
         </div>
 
@@ -1062,107 +1071,6 @@
           link.classList.add('copied');
           setTimeout(() => link.classList.remove('copied'), 1500);
         }).catch(() => {});
-      });
-    });
-  </script>
-
-
-  <script>
-    document.addEventListener("adobe_dc_view_sdk.ready", function() {
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-1party-pr" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/1party-press-release.pdf" } },
-        metaData: { fileName: "1party-press-release.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-streetlives-pr" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-press-release.pdf" } },
-        metaData: { fileName: "streetlives-press-release.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-buxr-pr" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/buxr-press-release.pdf" } },
-        metaData: { fileName: "buxr-press-release.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-op-original" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-one-pager-original.pdf" } },
-        metaData: { fileName: "streetlives-one-pager-original.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-op-revised" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/streetlives-one-pager-revised.pdf" } },
-        metaData: { fileName: "streetlives-one-pager-revised.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
-      });
-
-    new AdobeDC.View({ clientId: "791153cd17694f1c92cdd6d6f17b8e87", divId: "adobe-dc-view-reason" })
-      .previewFile({
-        content: { location: { url: window.location.origin + "/assets/pdfs/reason-13-1-release-notes.pdf" } },
-        metaData: { fileName: "reason-13-1-release-notes.pdf" }
-      }, {
-        embedMode: "SIZED_CONTAINER",
-        showDownloadPDF: true,
-        showPrintPDF:    true,
-        showLeftHandPanel: false,
-        showAnnotationTools: false,
-      }).then(function() {
-        requestAnimationFrame(function() {
-          window.dispatchEvent(new Event('resize'));
-        });
       });
     });
   </script>
