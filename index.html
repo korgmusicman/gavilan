@@ -129,7 +129,6 @@
 
     .nav-links a:hover { color: var(--mint); }
     .nav-links a:active { color: var(--caramel); transition-duration: 0.08s; }
-    .nav-links a.active { color: var(--caramel); pointer-events: none; }
 
     .nav-toggle {
       display: none;
@@ -956,6 +955,49 @@
     .skip-link:focus {
       top: 12px;
     }
+    /* ── ANNOUNCEMENT TICKER ── */
+    .ticker-wrap {
+      width: 100%;
+      background: rgba(200, 135, 58, 0.12);
+      border-bottom: 1px solid rgba(200, 135, 58, 0.25);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 9px 0;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker-scroll 40s linear infinite;
+      will-change: transform;
+    }
+    .ticker-wrap:hover .ticker-track {
+      animation-play-state: paused;
+    }
+    .ticker-item {
+      display: inline;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.70rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--caramel);
+      padding-right: 0;
+    }
+    .ticker-dot {
+      margin: 0 10px;
+      opacity: 0.5;
+    }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track { animation: none; }
+      .ticker-item:last-child { display: none; }
+      .ticker-wrap {
+        overflow: auto;
+        white-space: normal;
+        padding: 10px 6vw;
+      }
+    }
   </style>
 </head>
 <body>
@@ -985,6 +1027,44 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+
+  <!-- CONFERENCE ANNOUNCEMENT TICKER -->
+  <div class="ticker-wrap" role="marquee" aria-label="Conference announcement" aria-live="off">
+    <div class="ticker-track">
+      <span class="ticker-item">
+        &ldquo;Bowling Alone Is Over&rdquo; accepted for presentation at ICUA 2027
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        International Conference on Urban Affairs
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        New York City
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        April 14&ndash;16, 2027
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        Research Paper Panel
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        Presentation date announced December 9
+        <span class="ticker-dot" aria-hidden="true">&middot;</span>
+        Stay tuned for more!
+        <span class="ticker-spacer" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </span>
+      <span class="ticker-item" aria-hidden="true">
+        &ldquo;Bowling Alone Is Over&rdquo; accepted for presentation at ICUA 2027
+        <span class="ticker-dot">&middot;</span>
+        International Conference on Urban Affairs
+        <span class="ticker-dot">&middot;</span>
+        New York City
+        <span class="ticker-dot">&middot;</span>
+        April 14&ndash;16, 2027
+        <span class="ticker-dot">&middot;</span>
+        Research Paper Panel
+        <span class="ticker-dot">&middot;</span>
+        Presentation date announced December 9
+        <span class="ticker-dot">&middot;</span>
+        Stay tuned for more!
+        <span class="ticker-spacer" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </span>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="intro" aria-label="Introduction">
